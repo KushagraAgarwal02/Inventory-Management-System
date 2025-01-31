@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+<style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightcyan;
+            color: #333;
+        }
+        
+        /* Container styles */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: lightgray;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Heading styles */
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px; /* Add space between tables */
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+        
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        /* Image styles */
+        .icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+        
+        /* Placeholder image styles */
+        .placeholder-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin-right: 10px;
+        }
+    </style>
+      </head>
+<body>
+    <div class="container">
+        <h1>Inventory Management System</h1>
+		<br>	
+          <br>
+        <h2 style="color: #4CAF50;">Products</h2>
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th style="background-color: #4CAF50; color: #fff;">Product ID</th>
+                    <th style="background-color: #4CAF50; color: #fff;">Name</th>
+                    <th style="background-color: #4CAF50; color: #fff;">Description</th>
+                    <th style="background-color: #4CAF50; color: #fff;">Price</th>
+                    <th style="background-color: #4CAF50; color: #fff;">Quantity</th>
+                </tr>
+            </thead>
+            </thead>
+            <tbody id="productTableBody">
+                <!-- Product data will be displayed here -->
+                <tr>
+                    <td>1</td>
+                    <td>Basmati Rice</td>
+                    <td>Premium Quality Basmati Rice</td>
+                    <td>80.00</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Wheat Flour</td>
+                    <td>Whole Wheat Flour</td>
+                    <td>40.00</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Toor Dal</td>
+                    <td>High Protein Toor Dal</td>
+                    <td>120.00</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Sugar</td>
+                    <td>Refined White Sugar</td>
+                    <td>50.00</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Salt</td>
+                    <td>Iodized Table Salt</td>
+                    <td>20.00</td>
+                    <td>400</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Black Pepper</td>
+                    <td>Whole Black Pepper</td>
+                    <td>70.00</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Red Chilli Powder</td>
+                    <td>Spicy Red Chilli Powder</td>
+                    <td>60.00</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Turmeric Powder</td>
+                    <td>Organic Turmeric Powder</td>
+                    <td>75.00</td>
+                    <td>150</td>
+                </tr>
+
+                <!-- Add more rows for other products -->
+            </tbody>
+        </table>
+		<br>
+        
+        <h2 style="color:DodgerBlue;">Suppliers</h2>
+        <table id="supplierTable">
+            <thead>
+                <tr>
+                    <th style="background-color:DodgerBlue; color: #fff;">SupplierID</th>
+                    <th style="background-color:DodgerBlue; color: #fff;">Name</th>
+                    <th style="background-color:DodgerBlue; color: #fff;">Contact</th>
+                    <th style="background-color:DodgerBlue; color: #fff;">Address</th>
+                </tr>
+            </thead>
+            <tbody id="supplierTableBody">
+                <!-- Supplier data will be displayed here -->
+                <tr>
+                    <td>1</td>
+                    <td>Agro Products Pvt. Ltd.</td>
+                    <td>contact@agroproducts.com</td>
+                    <td>123, MG Road, Mumbai</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Healthy Foods Inc.</td>
+                    <td>info@healthyfoods.com</td>
+                    <td>456, Park Street, Kolkata</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Natural Spices Co.</td>
+                    <td>info@naturalspices.com</td>
+                    <td>789, Park Street, Delhi</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Fresh Foods Market</td>
+                    <td>contact@freshfoods.com</td>
+                    <td>321, MG Road, Bangalore</td>
+                </tr>
+                <!-- Add more rows for other suppliers -->
+            </tbody>
+        </table>
+
+         <br>
+        <h2 style="color:Tomato;">Customers</h2>
+        <table id="customerTable">
+            <thead>
+                <tr>
+                    <th style="background-color:Tomato; color: #fff;">Customer ID</th>
+                    <th style="background-color:Tomato; color: #fff;">Name</th>
+                    <th style="background-color:Tomato; color: #fff;">Contact Info</th>
+                    <th style="background-color:Tomato; color: #fff;">Address</th>
+                </tr>
+            </thead>
+            <tbody id="customerTableBody">
+                <!-- Customer data will be displayed here -->
+                <tr>
+    <td>101</td>
+    <td>Ravi Kumar</td>
+    <td>ravikumar@example.com</td>
+    <td>789, Nehru Road, Delhi</td>
+</tr>
+<tr>
+    <td>102</td>
+    <td>Sunita Sharma</td>
+    <td>sunitasharma@example.com</td>
+    <td>321, Gandhi Nagar, Chennai</td>
+</tr>
+<tr>
+    <td>103</td>
+    <td>Anil Gupta</td>
+    <td>anilgupta@example.com</td>
+    <td>654, MG Road, Bangalore</td>
+</tr>
+<tr>
+    <td>104</td>
+    <td>Pooja Singh</td>
+    <td>poojasingh@example.com</td>
+    <td>123, Nehru Road, Mumbai</td>
+</tr>
+<tr>
+    <td>105</td>
+    <td>Rajesh Kumar</td>
+    <td>rajeshkumar@example.com</td>
+    <td>456, Gandhi Nagar, Kolkata</td>
+</tr>
+<tr>
+    <td>106</td>
+    <td>Anita Sharma</td>
+    <td>anitasharma@example.com</td>
+    <td>789, Park Street, Delhi</td>
+</tr>
+<tr>
+    <td>107</td>
+    <td>Vijay Gupta</td>
+    <td>vijaygupta@example.com</td>
+    <td>321, MG Road, Chennai</td>
+</tr>
+<tr>
+    <td>108</td>
+    <td>Priya Rani</td>
+    <td>priyarani@example.com</td>
+    <td>654, Nehru Road, Mumbai</td>
+</tr>
+
+                <!-- Add more rows for other customers -->
+            </tbody>
+        </table>
+
+           <br>
+        <h2 style="color:Orange">Orders</h2>
+        <table id="orderTable">
+            <thead>
+                <tr>
+                    <th style="background-color:Orange; color: #fff;">Order ID</th>
+                    <th style="background-color:Orange; color: #fff;">Product ID</th>
+                    <th style="background-color:Orange; color: #fff;">Customer ID</th>
+                    <th style="background-color:Orange; color: #fff;">Order Date</th>
+                    <th style="background-color:Orange; color: #fff;">Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="orderTableBody">
+                <!-- Order data will be displayed here -->
+                <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>101</td>
+        <td>2024-02-01</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>2</td>
+        <td>102</td>
+        <td>2024-02-02</td>
+        <td>15</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>3</td>
+        <td>103</td>
+        <td>2024-02-03</td>
+        <td>20</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>4</td>
+        <td>104</td>
+        <td>2024-02-04</td>
+        <td>30</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>5</td>
+        <td>105</td>
+        <td>2024-02-05</td>
+        <td>40</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>6</td>
+        <td>106</td>
+        <td>2024-02-06</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>7</td>
+        <td>107</td>
+        <td>2024-02-07</td>
+        <td>20</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>8</td>
+        <td>108</td>
+        <td>2024-02-08</td>
+        <td>15</td>
+    </tr>
+                <!-- Add more rows for other orders -->
+            </tbody>
+        </table>
+
+             <br>
+        <h2 style="color:DarkRed;">Inventory</h2>
+        <table id="inventoryTable">
+            <thead>
+                <tr>
+                    <th style="background-color:DarkRed; color: #fff;">Inventory ID</th>
+                    <th style="background-color:DarkRed; color: #fff;">Product ID</th>
+                    <th style="background-color:DarkRed; color: #fff;">Supplier ID</th>
+                    <th style="background-color:DarkRed; color: #fff;">Quantity Available</th>
+                    <th style="background-color:DarkRed; color: #fff;">Reorder Level</th>
+                </tr>
+            </thead>
+            <tbody id="inventoryTableBody">
+                <!-- Inventory data will be displayed here -->
+                <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>150</td>
+    <td>50</td>
+</tr>
+<tr>
+    <td>2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>100</td>
+    <td>30</td>
+</tr>
+<tr>
+    <td>3</td>
+    <td>3</td>
+    <td>3</td>
+    <td>80</td>
+    <td>20</td>
+</tr>
+<tr>
+    <td>4</td>
+    <td>4</td>
+    <td>2</td>
+    <td>300</td>
+    <td>75</td>
+</tr>
+<tr>
+    <td>5</td>
+    <td>5</td>
+    <td>3</td>
+    <td>400</td>
+    <td>100</td>
+</tr>
+<tr>
+    <td>6</td>
+    <td>6</td>
+    <td>1</td>
+    <td>100</td>
+    <td>30</td>
+</tr>
+<tr>
+    <td>7</td>
+    <td>7</td>
+    <td>2</td>
+    <td>200</td>
+    <td>40</td>
+</tr>
+<tr>
+    <td>8</td>
+    <td>8</td>
+    <td>1</td>
+    <td>150</td>
+    <td>40</td>
+</tr>
+                <!-- Add more rows for other inventory items -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
